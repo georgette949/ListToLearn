@@ -1,5 +1,7 @@
 # ListToLearn
-Todo List para organizar mi aprendizaje de desarrollo web
+
+este es mi proyecto personal, del bootcamp que estoy haciendo en Factoria F5,
+una Todo List simple y facil de usar para organizar mi aprendizaje de desarrollo web
 # 
 
 
