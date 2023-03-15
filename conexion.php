@@ -1,14 +1,14 @@
 <?php
 
-$conn = 'mysql:host=localhost;dbname=learn_up';
+$link = 'mysql:host=localhost;dbname=learn_up';
 $usuario = 'root';
 $pass = '';
 
 try{
 
-$pdo = new PDO($conn, $usuario, $pass);
+$pdo = new PDO($link, $usuario, $pass);
 
-echo'Conectado';
+//echo'Conectado';
 
 
 } catch (PDOException $e) {
