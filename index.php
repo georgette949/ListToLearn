@@ -11,6 +11,25 @@ $gsent->execute();
 
 $resultado = $gsent->fetchAll();
 // var_dump ($resultado);
+
+
+//AGREGAR
+    if ($_POST){
+        $title = $_POST['title'];
+        $date_time = $_POST['date_time'];
+    
+        $sql_agregar = 'INSERT INTO task (title, date_time) VALUES (?,?)';
+        $sentencia_agregar = $pdo->prepare($sql_agregar);
+        $sentencia_agregar->execute(array($title,$date_time));
+        
+        header('location:index.php');
+    }
+    
+
+
+
+
+
 ?>
 
 
@@ -49,9 +68,13 @@ $resultado = $gsent->fetchAll();
             <div class="col-md-6" style="margin-top: 40px">
 
                 <h2 style="color: #ccc">what do you want to learn?</h2>
-                <form>
-                    <!--<input type="text" class="form-control" style="color:#ccc" name="color">-->
-                    <input type="text" class="form-control mt-3" style="color: #ccc" name="descripcion">
+                <form method="POST">
+                    <input type="text" class="form-control" style="color:#ccc" name="title">
+                    <input type="text"     
+                           class="form-control mt-3" 
+                           style="color: #ccc"
+                           name="date_time">
+                          
                     <button class="btn btn-secondary mt-3">Add</button>
                 </form>
 
@@ -71,6 +94,6 @@ $resultado = $gsent->fetchAll();
             
             <?php endforeach  ?>
             </div>
-</body>
+            </body>
 
 </html>
