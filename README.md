@@ -40,4 +40,4 @@ PHP
 Stacks:
 PHP
 MySql
-Tailwind
+Bootstrap
