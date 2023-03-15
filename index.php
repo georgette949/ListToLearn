@@ -69,12 +69,12 @@ $resultado = $gsent->fetchAll();
 
                 <h2 style="color: #ccc">what do you want to learn?</h2>
                 <form method="POST">
-                    <input type="text" class="form-control" style="color:#ccc" name="title">
+                    <input type="text" class="form-control" style="color:#ccc" name= title placeholder="Here your task">
                     <input type="text"     
                            class="form-control mt-3" 
                            style="color: #ccc"
-                           name="date_time">
-                          
+                           name="date_time"
+                           placeholder="YYYY-MM-DD- HH:MM:SS">
                     <button class="btn btn-secondary mt-3">Add</button>
                 </form>
 
