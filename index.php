@@ -45,6 +45,7 @@ $resultado = $gsent->fetchAll();
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>LearnUp</title>
+    <script src="https://kit.fontawesome.com/1f2752ff52.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -90,6 +91,9 @@ $resultado = $gsent->fetchAll();
                      style="background-color:azure"><?php echo $dato['title']?>   
                                                       /
                                                     <?php echo $dato['date_time']?>
+                  <a href="" class="float-end">
+                    <i class="fas fa-pencil-alt"></i>    
+                  </a>                             
             </div>
             
             <?php endforeach  ?>
