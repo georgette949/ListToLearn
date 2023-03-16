@@ -113,6 +113,8 @@ $resultado_unico = $gsent_unico->fetch();
                      style="background-color:azure"><?php echo $dato['title']?>   
                                                       /
                                                     <?php echo $dato['date_time']?>
+                  <a href="eliminar.php?id=<?php echo $dato['id']?>" class="float-end ml-8">   
+                    <i class="far fa-trash-alt"></i>                          
                   <a href="index.php?id=<?php echo $dato['id']?>" class="float-end">
                     <i class="fas fa-pencil-alt"></i>    
                   </a>                             
