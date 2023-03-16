@@ -5,10 +5,8 @@ include_once 'conexion.php';
 //LEER
 
 $sql_leer = 'SELECT * FROM task';
-
 $gsent = $pdo->prepare($sql_leer);
 $gsent->execute();
-
 $resultado = $gsent->fetchAll();
 // var_dump ($resultado);
 
@@ -25,7 +23,19 @@ $resultado = $gsent->fetchAll();
         header('location:index.php');
     }
     
+//EDITAR
 
+if($_GET){
+$id = $_GET ['id'];
+$sql_unico = 'SELECT * FROM task WHERE id=?';
+$gsent_unico = $pdo->prepare($sql_unico);
+$gsent_unico->execute(array($id));
+$resultado_unico = $gsent_unico->fetch();
+
+//var_dump($resultado_unico);
+
+
+}
 
 
 
@@ -67,17 +77,29 @@ $resultado = $gsent->fetchAll();
         <div class="row">
 
             <div class="col-md-6" style="margin-top: 40px">
-
+                <?php if(!$_GET): ?>
                 <h2 style="color: #ccc">what do you want to learn?</h2>
                 <form method="POST">
                     <input type="text" class="form-control" style="color:#ccc" name= title placeholder="Here your task">
-                    <input type="text"     
-                           class="form-control mt-3" 
-                           style="color: #ccc"
-                           name="date_time"
-                           placeholder="YYYY-MM-DD- HH:MM:SS">
+                    <input type="text" class="form-control mt-3" style="color: #ccc"name="date_time" placeholder="YYYY-MM-DD- HH:MM:SS">            
                     <button class="btn btn-secondary mt-3">Add</button>
                 </form>
+                <?php endif ?>
+
+                <?php if($_GET): ?>
+                <h2 style="color: #ccc"> Do you want to Edit?</h2>
+                <form method="GET" action="editar.php">
+                    <input type="text" class="form-control" style="color:#ccc" name= title placeholder="Here your task"
+                    value="<?php echo $resultado_unico['title'] ?>">
+                    <input type="text" class="form-control mt-3" style="color: #ccc" name="date_time" placeholder="YYYY-MM-DD- HH:MM:SS" 
+                    value="<?php echo $resultado_unico['date_time'] ?>">   
+                    <input type="hidden" name="id"
+                    value="<?php echo $resultado_unico['id'] ?>">
+                          
+                    <button class="btn btn-secondary mt-3">Add</button>
+                </form>
+                <?php endif ?>
+
 
                 <img src="src/img/imgLearn.png" class="rounded float-start w-100 h-120" alt="img">
 
@@ -91,7 +113,7 @@ $resultado = $gsent->fetchAll();
                      style="background-color:azure"><?php echo $dato['title']?>   
                                                       /
                                                     <?php echo $dato['date_time']?>
-                  <a href="" class="float-end">
+                  <a href="index.php?id=<?php echo $dato['id']?>" class="float-end">
                     <i class="fas fa-pencil-alt"></i>    
                   </a>                             
             </div>
