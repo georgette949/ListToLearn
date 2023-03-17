@@ -8,7 +8,7 @@ try{
 
 $pdo = new PDO($link, $usuario, $pass);
 
-//echo'Conectado';
+echo'Conectado <br>' ;
 
 
 } catch (PDOException $e) {
