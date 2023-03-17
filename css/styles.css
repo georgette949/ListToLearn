@@ -1,4 +1,15 @@
 
-body {
+/*body {
     background: #34495e;;
 }
+
+/*body {
+    background: rgb(157, 161, 188);
+}*/
+/*body {
+    background: linear-gradient(to bottom, #4d4dff, #000080, #ff4d4d);
+  }*/
+  body {
+    background: linear-gradient(to top, #4d4dff, #34495e);
+  }
+  

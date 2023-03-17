@@ -16,9 +16,9 @@ $resultado = $gsent->fetchAll();
         $title = $_POST['title'];
         $date_time = $_POST['date_time'];
     
-        $sql_agregar = 'INSERT INTO task (title, date_time) VALUES (?,?)';
+        $sql_agregar = 'INSERT INTO task (title, date_time) VALUES (?, NOW())';
         $sentencia_agregar = $pdo->prepare($sql_agregar);
-        $sentencia_agregar->execute(array($title,$date_time));
+        $sentencia_agregar->execute(array($title));
         
         header('location:index.php');
     }
@@ -56,7 +56,8 @@ $resultado_unico = $gsent_unico->fetch();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>LearnUp</title>
     <script src="https://kit.fontawesome.com/1f2752ff52.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/styles.css">
+    //<link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../ListToLearn//css/styles.css">
 </head>
 
 <body>
@@ -81,7 +82,7 @@ $resultado_unico = $gsent_unico->fetch();
                 <h2 style="color: #ccc">what do you want to learn?</h2>
                 <form method="POST">
                     <input type="text" class="form-control" style="color:#ccc" name= title placeholder="Here your task">
-                    <input type="text" class="form-control mt-3" style="color: #ccc"name="date_time" placeholder="YYYY-MM-DD- HH:MM:SS">            
+                    <input type="datetime-local" class="form-control mt-3" style="color: #ccc"name="date_time" placeholder="YYYY-MM-DD- HH:MM:SS">            
                     <button class="btn btn-secondary mt-3">Add</button>
                 </form>
                 <?php endif ?>
@@ -91,7 +92,7 @@ $resultado_unico = $gsent_unico->fetch();
                 <form method="GET" action="editar.php">
                     <input type="text" class="form-control" style="color:#ccc" name= title placeholder="Here your task"
                     value="<?php echo $resultado_unico['title'] ?>">
-                    <input type="text" class="form-control mt-3" style="color: #ccc" name="date_time" placeholder="YYYY-MM-DD- HH:MM:SS" 
+                    <input type="datetime-local" class="form-control mt-3" style="color: #ccc" name="date_time" placeholder="YYYY-MM-DD- HH:MM:SS" 
                     value="<?php echo $resultado_unico['date_time'] ?>">   
                     <input type="hidden" name="id"
                     value="<?php echo $resultado_unico['id'] ?>">
