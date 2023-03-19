@@ -45,7 +45,7 @@ if (password_verify($contrasena2, $contrasena)) {
         }
         
         
-        //header('location:index.php');
+        header('<location: index.php');
 
     
 }else {
@@ -57,7 +57,7 @@ echo '<pre>';
 var_dump($usuario_nuevo);
 var_dump($contrasena);
 var_dump($contrasena2);
-echo '<pre>'
+echo '<pre>';
 
 
 

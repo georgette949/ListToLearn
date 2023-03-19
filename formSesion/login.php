@@ -37,7 +37,7 @@ echo'</pre>';
 
 
 
- if(password_verify($contrasena_login, ($resultado['contrasena'])) ){
+ if(password_verify($contrasena_login, $resultado['contrasena']) ){
                 //las contraseñas son iguales
                 $SESSION['admin'] = $usuario_login;
                 header('location: restringido.php');
